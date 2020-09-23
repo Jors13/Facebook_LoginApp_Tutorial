@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const cors = require('cors');
 
 //Settings
 const PORT = process.env.PORT || 4000;
@@ -8,7 +9,7 @@ const PORT = process.env.PORT || 4000;
 //Middlewares
 app.use(morgan('dev')); //Request Middleware for Query's
 app.use(express.json()); // Send and Receive Json //Cross Allow Origin Receive and Send Data from external server
-/*app.use(cors()); */ 
+app.use(cors());
 
 app.get('/', (req, res) => {
 	res.send('Hello World with Nodejs and Express ');
